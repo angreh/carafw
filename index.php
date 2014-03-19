@@ -1,12 +1,11 @@
 <?php
 
-//pasta com os arquivos do framework
-define('LIBRARY_PATH', 'library/');
-//pasta dos arquivos do sistema
-define('SYSTEM_PATH', 'system/');
+require 'clases/Ayudante.php';
+$ayudante = new Ayudante();
 
-//inclusão do arquivo do framework
-require LIBRARY_PATH . 'CaraPFW/CaraFW.class.php';
+$usuario = $ayudante->Usuarios()->add();
 
-//GrehFw Start
-$fw = new GrehFW();
+$tpl = $ayudante->Template('layouts/base.html');
+$tpl->addFile('CONTENIDO', 'paginas/index.html');
+$tpl->USUARIO = $usuario;
+$tpl->show();

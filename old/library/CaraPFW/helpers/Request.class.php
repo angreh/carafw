@@ -5,7 +5,7 @@
  * dizer queal das partes é modulo, controller, action e variáveis retornando seu 
  * nome devidamente formatado
  * 
- * Responsavél também por retornar os nome e rocalizações dos arquivos dos modulos,
+ * Responsavél também por retornar os nome e localizações dos arquivos dos modulos,
  * controllers e etc ...
  */
 
@@ -70,7 +70,7 @@ class Request {
      * Define todas as variavéis de modulos, controlers, ações e variáveis
      */
     public function init($options = array()) {
-
+        
         $default = array(
             'defaultModule' => 'site',
             'defaultController' => 'home',
@@ -85,7 +85,7 @@ class Request {
 
         //trasnforma em array
         $request = explode('/', $request);
-
+        
         //Define modulo
         if (isset($request[0]) && $request[0] != '') {
             $this->module = $request[0];
@@ -124,7 +124,7 @@ class Request {
             }
         }
     }
-
+    
     /**
      * 
      * @return string endereço do arquivo do controller

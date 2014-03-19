@@ -6,13 +6,9 @@
 
 abstract class DefaultController {
 
-    /**
-     *
-     * @var Helpers
-     */
     protected $helper;
 
-    public function __construct($helper = null) {
+    public function __construct($helper = NULL) {
         $this->helper = $helper;
         $this->init();
     }
@@ -27,6 +23,10 @@ abstract class DefaultController {
         } else {
             exit(var_dump("Essa action $action nao existe"));
         }
+    }
+    
+    public function indexAction(){
+        
     }
 
 }

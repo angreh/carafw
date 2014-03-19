@@ -32,8 +32,7 @@ class GrehFW {
          * automaticamente 
          */
         $helper->AutoLoader()->register();
-
-
+        
         /**
          * Inicializa o Request
          * 
