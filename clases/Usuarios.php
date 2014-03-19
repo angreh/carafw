@@ -15,7 +15,7 @@ class Usuarios {
      * @return array 
      */
     public function lista() {
-        return array();
+        return array('Piola');
     }
 
 }
