@@ -1,0 +1,17 @@
+body{
+    margin: 0px auto;
+    width: 800px;
+    
+}
+body>.divHeader{
+    width: 100%;
+    height: 200px;
+    background: url(../imagenes/earth.jpg) no-repeat;
+
+}
+body>.divPie{
+    width: 100%;
+    height: 200px;
+    background: url(../imagenes/pies.jpg) no-repeat;
+}
+
