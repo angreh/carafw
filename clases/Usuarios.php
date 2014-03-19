@@ -10,7 +10,7 @@
 class Usuarios {
     
     /**
-     * Enumere todos los usuarios del sistema
+     * Lista todos los usuarios del sistema
      * 
      * @return array 
      */
