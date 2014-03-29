@@ -1,17 +1,58 @@
 body{
     margin: 0px auto;
     width: 800px;
-    
-}
-body>.divHeader{
-    width: 100%;
-    height: 200px;
-    background: url(../imagenes/earth.jpg) no-repeat;
 
 }
-body>.divPie{
+body>.divContenedor>.divHeader{
     width: 100%;
     height: 200px;
-    background: url(../imagenes/pies.jpg) no-repeat;
 }
+.divHeader img,.divPie img { 
+    width: 100%; 
+    height: 100%;
+}
+body>.divContenedor>.divPie{
+    width: 100%;
+    height: 200px;
 
+}
+.divMenu{
+    width:100%;
+    height:60px;
+    margin-left: -10px;
+    background:none;
+    background-clip: padding-box;     
+    -moz-background-clip: padding;     
+    -webkit-background-clip: padding;  
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius:10px; 
+    border: 10px solid rgba(255,255,255,0.3);
+}
+.navMenu{
+    border-radius:3px;
+    width:100%;
+    height:60px;
+    background:linear-gradient(#FFA500 0%, #FFFF00 100%);
+    background:-moz-linear-gradient(#FFA500 0%, #FFFF00 100%);
+    background:-ms-linear-gradient(#FFA500 0%, #FFFF00 100%);
+    background:-o-linear-gradient(#FFA500 0%, #FFFF00 100%);
+    background:-webkit-linear-gradient(#FFA500 0%, #FFFF00 100%);
+}
+.navMenu menu{
+    display:inline-block;
+    width:120px;
+    text-align:center;
+    margin:10px auto;
+    background:none;
+    color:#000;
+    border: transparent solid 1px;
+    padding:10px;
+}
+.navMenu menu:hover{
+    width:120px;
+    color:grey;
+    border: #000 solid 1px;
+    cursor: pointer;
+    background: aqua;
+}
