@@ -1,8 +1,8 @@
 window.onload=function(){
-    document.getElementById("idAgenda").onclick=function(){
+    document.getElementById("idMenuAgenda").onclick=function(){
         document.location='pagina2.php';
     };
-    document.getElementById("idHome").onclick=function(){
+    document.getElementById("idMenuHome").onclick=function(){
       document.location="index.php" ; 
     };
 };
