@@ -16,7 +16,7 @@ if (isset($_GET["desconectado"]) && $_GET["desconectado"] == 1) {
     session_start();
     session_unset();
     session_destroy();
-    header("location: admin/login.php");
+    header("location: login.php");
 };
 if (!empty($_POST)) {
       
@@ -33,7 +33,7 @@ if (!empty($_POST)) {
             session_name("session");
             session_start();
             $_SESSION["usuario"] = $_POST["login"];
-            header("location: admin/admin.php");
+            header("location: admin.php");
         };
         $conBBDD->close();
     };
