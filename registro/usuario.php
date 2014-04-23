@@ -7,13 +7,14 @@ $ayudante = new Ayudante();
 
 // Define cuáles son los códigos HTML que se utilizarán
 // essa linha cria a classe template e impota um layout 
-$tpl = $ayudante->Template('../layouts/layoutBase.html');
+$tpl = $ayudante->Template('layouts/layoutBase.html');
 // pega esse arquivo e joga dentor de contenido
-$tpl->addFile('CONTENIDO', '../paginas/usuario.html');
+$tpl->addFile('CONTENIDO', 'paginas/usuario.html');
 
 $conBBDD = new mysqli("localhost", "usuario", "123456", "municipios");
 if ($conBBDD->connect_errno) {
-    echo "&gt;disconect database;&lt";
+    if ($tpl->exists("AVISO"))
+        $tpl->AVISO = 'no se a podido conectar a la BBDD intetalo mas tarde';
 }
 $rcsDatos = $conBBDD->query("select id, comunidad from comunidades order by comunidad;");
 if ($rcsDatos->num_rows == 0) {
@@ -36,7 +37,7 @@ $consLocali = $conBBDD->query("select municipios.id,municipios.municipio from mu
 while ($oLocalidad = $consLocali->fetch_object()) {
     echo "<option value=" . $oLocalidad->id . ">" . utf8_encode($oLocalidad->municipio) . "</option>";
 }
-
+ echo "<img src=imagenes/lupa.png alt='confirmacion' />" ;
 // Código PHP
 //$usuario = $ayudante->Usuarios()->lista();
 //$tpl->USUARIO = $usuario[0];
