@@ -1,12 +1,21 @@
-/* 
-    Document   : index
-    Created on : 19-mar-2014, 22:12:22
-    Author     : Sisardo
-    Description:
-        Purpose of the stylesheet follows.
-*/
-
-root { 
-    display: block;
+.divFestival1{
+    width: 400px;
+    height: 400px;
+}
+.divFestival2{
+    width: 400px;
+    height: 400px;
+}
+.divFestival3{
+    width: 400px;
+    height: 400px;
+}
+.divFestival4{
+    width: 400px;
+    height: 400px;
+}
+.divFestival5{
+    width: 400px;
+    height: 400px;
 }
 

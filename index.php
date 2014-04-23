@@ -9,7 +9,7 @@ $ayudante = new Ayudante();
 // essa linha cria a classe template e impota um layout 
 $tpl = $ayudante->Template('layouts/layoutBase.html');
 // pega esse arquivo e joga dentor de contenido
-$tpl->addFile('CONTENIDO', 'paginas/pagina1.html');
+$tpl->addFile('CONTENIDO', 'paginas/index.html');
 
 
 // Código PHP

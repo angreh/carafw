@@ -1,6 +1,6 @@
 window.onload=function(){
     document.getElementById("idMenuAgenda").onclick=function(){
-        document.location='pagina2.php';
+        document.location='agenda.php';
     };
     document.getElementById("idMenuHome").onclick=function(){
       document.location="index.php" ; 
