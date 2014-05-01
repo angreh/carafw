@@ -1,14 +1,39 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html>
     <head>
         <title>Administracion</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../../css/admin/admin.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" src="../../js/admin/adminIndex.js" ></script>
+        <script type="text/javascript" src="../../js/eventos.js" ></script>
     </head>
     <body>
-        {CONTENIDO}
+        <div><a href="../../admin/login.php?desconectado=1">desconectar</a></div>
+        <!--header-->
+        <div class="divAdminHeader">
+            <h1>ADMNISTRACION</h1>
+        </div> 
+        <!--fin header-->
+        <!--menu-->
+        <div class="divAdminMenu">
+            <nav class="navAdminMenu">
+                <menu id="idMenuAdminHome">Home</menu>
+                <menu id="idMenuAdminAgenda">Agenda</menu>
+                <menu id="idMenuAdminFestival">Festival</menu>
+                <menu id="idMenuAdminGaleria">Fotos</menu>
+                <menu id="idMenuAdminEstilos">Estilos de Music</menu>
+                <menu id="idMenuAdminGrupos">Grupos</menu>
+            </nav>
+        </div>
+        <!--fin menu-->
+        <div class="divAdminContenedor">
+            {CONTENIDO}
+        </div>
+        <!--comiezo pie-->
+        <div class="divAdminPie">
+            <div class="divAdminCopy"> Copyrigt &copy; 2014 Sisardo Fernando <!--<img alt="pie" src="../imagenes/pies.jpg"/>--></div>
+        </div> 
+        <!--fin pie-->
     </body>
 </html>

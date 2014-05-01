@@ -1,5 +1,4 @@
 <?php
-
 require '../clases/Ayudante.php';
 $ayudante = new Ayudante();
 
