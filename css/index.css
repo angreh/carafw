@@ -1,21 +1,64 @@
-.divFestival1{
-    width: 400px;
-    height: 400px;
+.divIntroducion{
+    width: 450px;
 }
-.divFestival2{
-    width: 400px;
-    height: 400px;
+.divIntroducion .divIndexTitulo1{
+    text-align: center;
 }
-.divFestival3{
-    width: 400px;
-    height: 400px;
+.divIntroducion .divFestival1{
+    width: 250px;
+    height: 300px;
+    margin-left: 10px;
 }
-.divFestival4{
-    width: 400px;
-    height: 400px;
+.divIntroducion .divFestival2{
+    width: 250px;
+    height: 300px;
+    margin-left: 250px;
+    margin-top: -300px;
+    
 }
-.divFestival5{
-    width: 400px;
-    height: 400px;
+.divIntroducion .divFestival3{
+    width: 250px;
+    height: 300px;
+    margin-left: 10px;
 }
-
+.divIntroducion .divFestival4{
+    width: 250px;
+    height: 300px;
+    margin-left: 250px;
+    margin-top: -300px;
+    
+}
+.divIntroducion .divFestival5{
+    width: 250px;
+    height: 300px;
+    margin-left: 10px;
+}
+.divIntroducion .divFestival6{
+    width: 250px;
+    height: 300px;
+    margin-left: 250px;
+    margin-top: -300px;
+    
+    
+}
+.divIndexCalendar{
+    width: 350px;
+    height: 110%;
+    margin-left: 450px;
+    margin-top: -970px;
+   
+}
+.divIndexCalendar .divIndexTitulo2{
+    text-align: center;
+}
+.divIndexCalendar .divIndexUltimaNoticias {
+    border: 1px solid ;
+    width: 350px;
+       
+}
+.divIndexCalendar #datepicker {
+    margin-top: 10px;
+}
+.divIndexCalendar .divIndexRegistrar {
+    margin-top: 10px;
+}

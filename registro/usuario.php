@@ -22,21 +22,36 @@ if ($rcsDatos->num_rows == 0) {
         $tpl->AVISO = 'esta mal echa la conexcion a la base de datos';
 }
 
-//$tpl->COMUNIDAD = 'while ($oComunidad = $rcsDatos->fetch_object()){ echo "<option value=" . $oComunidad->id . ">" . utf8_encode($oComunidad->comunidad) . "</option>"}';
 while ($oComunidad = $rcsDatos->fetch_object()) {
-    echo "<option value=" . $oComunidad->id . ">" . utf8_encode($oComunidad->comunidad) . "</option>";
+    $tpl->COMUNIDADE_ID = $oComunidad->id;
+    $tpl->COMUNIDADE = $oComunidad->comunidad;
+    $tpl->block('COMUNIDADE_BLOCK');
 }
 
 $lstProvincia = $conBBDD->query("SELECT provincias.id,provincias.provincia FROM tblfestivales.provincias
                         inner join comunidades on provincias.comunidad_id=comunidades.id where provincias.comunidad_id=1 order by provincia");
+if ($lstProvincia->num_rows == 0) {
+    if ($tpl->exists("AVISO"))
+        $tpl->AVISO = 'esta mal echa la conexcion a la base de datos';
+}
 while ($oProvinci = $lstProvincia->fetch_object()) {
-    echo "<option value=" . $oProvinci->id . ">" . utf8_encode($oProvinci->provincia) . "</option>";
+    $tpl->PROVINCIA_ID=$oProvinci->id;
+    $tpl->PROVINCIA=$oProvinci->provincia;
+    $tpl->block('PROVINCIA_BLOCK');
 }
 
-$consLocali = $conBBDD->query("select municipios.id,municipios.municipios from tblfestivales.municipios
+$lstMunicipios = $conBBDD->query("select municipios.id,municipios.municipios from tblfestivales.municipios
                         inner join provincias on municipios.id_provincia=provincias.id where id_provincia=4 order by municipios.municipios");
-while ($oLocalidad = $consLocali->fetch_object()) {
-    echo "<option value=" . $oLocalidad->id . ">" . utf8_encode($oLocalidad->municipios) . "</option>";
+if ($lstMunicipios->num_rows == 0) {
+    if ($tpl->exists("AVISO"))
+        $tpl->AVISO = 'esta mal echa la conexcion a la base de datos';
+}
+while ($oMunicipios = $lstMunicipios->fetch_object()) {
+    $tpl->MUNICIPIOS_ID=$oMunicipios->id;
+    $tpl->MUNICIPIOS=$oMunicipios->municipios;
+    $tpl->block('MUNICIPIOS_BLOCK');
+
+  //  echo "<option value=" . $oLocalidad->id . ">" . utf8_encode($oLocalidad->municipios) . "</option>";
 }
  echo "<img src=imagenes/lupa.png alt='confirmacion' />" ;
 // Código PHP

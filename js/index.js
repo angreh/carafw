@@ -5,4 +5,5 @@ window.onload=function(){
     document.getElementById("idMenuHome").onclick=function(){
       document.location="../index.php" ; 
     };
+    $( "#datepicker" ).datepicker();
 };
