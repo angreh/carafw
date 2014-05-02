@@ -16,35 +16,27 @@ if ($conBBDD->connect_errno) {
     if ($tpl->exists("AVISO"))
         $tpl->AVISO = 'no se a podido conectar a la BBDD intetalo mas tarde';
 }
-$lstGrupos = $conBBDD->query("select id,nombre from Grupos");
+$lstUsuarios = $conBBDD->query("select id,nombre from usuarios");
 
 if (!empty($_GET) && isset($_GET['apagarId'])) {
 
     //query de apagar o registro
-    $borrar = $conBBDD->query("delete from grupos where id=" . $_GET['apagarId']);
+    $borrar = $conBBDD->query("delete from usuarios where id=" . $_GET['apagarId']);
     if ($borrar === FALSE) {
         exit('no a sido borrado ');
     }
-    header("location: adcionarGrupos.php");
+    header("location: modificarUsuarios.php");
     //linha para redirecionar
 };
-if (empty($_POST)) {
+
 // pega esse arquivo e joga dentor de contenido
-    $tpl->addFile('CONTENIDO', 'paginas/admin/adcionarGrupos.html');
-    while ($rcsGrupos = $lstGrupos->fetch_object()) {
-        $tpl->GRUPO_ID = $rcsGrupos->id;
-        $tpl->GRUPO_NOMBRE = $rcsGrupos->nombre;
-        $tpl->block('GRUPO_BLOCK');
-    }
-} else {
-    $result = $conBBDD->query("insert into tblfestivales.grupos (nombre) values" .
-            " ('" . $_POST["adicionarNombreGrupo"] . "')");
-    if ($result === FALSE) {
-        exit('deu merda');
-    }
-    $conBBDD->close();
-    header("location: adcionarGrupos.php");
+$tpl->addFile('CONTENIDO', 'paginas/admin/modificarUsuarios.html');
+while ($rcsUsuarios = $lstUsuarios->fetch_object()) {
+    $tpl->USUARIO_ID = $rcsUsuarios->id;
+    $tpl->USUARIO_NOMBRE = $rcsUsuarios->nombre;
+    $tpl->block('USUARIO_BLOCK');
 }
+
 
 $tpl->show();
 ?>

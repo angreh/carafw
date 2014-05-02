@@ -1,15 +1,26 @@
-<h1>Visualizar Estilo</h1>
-<form method="post">
-    <div>Nombre del Estilo de Musica:<input name="VisualizarNombreEstilo" type="text" size="30" maxlength="50"/></div>
-    <div><input type="submit" value="Confirmar" name="Confirmar"/></div>
-</form>
+<h1>Visualizar y Borrar Estilo</h1>
+
+<div><!-- BEGIN ESTILO_BLOCK -->
+    <a href="adcionarEstilos.php?apagarId={ESTILO_ID}"> x </a> {ESTILO_NOMBRE} <br>
+    <!-- END ESTILO_BLOCK -->
+</div>
+
 <h1>Adicionar Estilo</h1>
 <form method="post">
-    <div>Nombre del Estilo de Musica:<input name="adicionarNombreEstilo" type="text" size="30" maxlength="50"/></div>
+    <div>Nombre del Estilo:<input name="adicionarNombreEstilo" type="text" size="30" maxlength="50"/></div>
     <div><input type="submit" value="Confirmar" name="Confirmar"/></div>
 </form>
-<h1>Borrar Estilo</h1>
-<form method="post">
-    <div>Nombre del Estilo de Musica:<input name="borrarNombreEstilo" type="text" size="30" maxlength="50"/></div>
-    <div><input type="submit" value="Confirmar" name="Confirmar"/></div>
-</form>
+
+
+<!--Lista de estilos:
+    
+<a href="/lstDirecion/adicionarEstilos.php?apagarId={ESTILOD_ID}">{x} rock
+    indie
+    sei lah
+-->
+
+
+<!-- <form method="post" action="recebe_upload.php" enctype="multipart/form-data">
+ <input type="file" name="arquivo" />
+linha 53 recebe_upload (move_uploaded_file)
+-->

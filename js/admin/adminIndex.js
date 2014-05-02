@@ -14,4 +14,7 @@ window.onload=function(){
     document.getElementById("idMenuAdminGrupos").onclick=function(){
       document.location='../../admin/adcionarGrupos.php' ; 
     };
+    document.getElementById("idMenuAdminUsuarios").onclick=function(){
+      document.location='../../admin/modificarUsuarios.php' ; 
+    };
 };
