@@ -41,9 +41,5 @@ if (!empty($_POST)) {
 }
 $tpl->ACTION = $_SERVER["PHP_SELF"];
 
-// Código PHP
-//$usuario = $ayudante->Usuarios()->lista();
-//$tpl->USUARIO = $usuario[0];
-// Muestra el contenido final
 $tpl->show();
 ?>

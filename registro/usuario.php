@@ -1,12 +1,10 @@
 <?php
 
-// Importa las clases que se utilizarán
 require '../clases/Ayudante.php';
 $ayudante = new Ayudante();
-// Define cuáles son los códigos HTML que se utilizarán
-// essa linha cria a classe template e impota um layout 
+
 $tpl = $ayudante->Template('layouts/layoutBase.html');
-// pega esse arquivo e joga dentor de contenido
+
 $conBBDD = new mysqli("localhost", "root", "123456", "tblfestivales");
 if ($conBBDD->connect_errno) {
     if ($tpl->exists("AVISO"))

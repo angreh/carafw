@@ -1,0 +1,62 @@
+.divUsuarioTitulo{
+    text-align: center;
+}
+.divUsuarioContenedor form{
+    text-align: right;
+    width: 500px;
+}
+.divUsuarioContenedor .divUsuarioAviso{
+    color: red;
+    text-align: right;
+}
+.divUsuarioContenedor form .divUsuarioNombre {
+    margin-left: 10px;
+}
+.divUsuarioContenedor form .divUsuarioComunidad {
+    margin-left: 10px;
+}
+.divUsuarioContenedor form .divUsuarioProvincia {
+    margin-left: 10px;
+}
+.divUsuarioContenedor form .divUsuarioMunicipios {
+    margin-left: 10px;
+}
+.divUsuarioContenedor form .divUsuarioApellidos {
+    margin-left: 10px;
+}
+.divUsuarioContenedor form .divUsuarioCorreo {
+    margin-left: 10px;
+}
+.divUsuarioContenedor form .divUsuarioLogin {
+    margin-left: 10px;
+}
+.divUsuarioContenedor form .divUsuarioContrasena {
+    margin-left: 10px;
+}
+.divUsuarioContenedor form .divUsuarioNombre input{
+    width: 210px;
+}
+.divUsuarioContenedor form .divUsuarioApellidos input{
+    width: 210px;
+}
+.divUsuarioContenedor form .divUsuarioCorreo input{
+    width: 210px;
+}
+.divUsuarioContenedor form .divUsuarioLogin input{
+    width: 210px;
+}
+.divUsuarioContenedor form .divUsuarioContrasena input{
+    width: 210px;
+}
+.divUsuarioContenedor form .divBtnUsuarioEnviar input{
+    margin-left: 300px;
+}
+.divUsuarioContenedor form .divUsuarioComunidad select{
+    width: 210px;
+}
+.divUsuarioContenedor form .divUsuarioProvincia select{
+    width: 210px;
+}
+.divUsuarioContenedor form .divUsuarioMunicipios select{
+    width: 210px;
+}

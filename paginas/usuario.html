@@ -1,34 +1,35 @@
 <div class="divUsuarioContenedor">
     <div class="divUsuarioTitulo"><h1>Registro</h1></div>
+    <div class="divUsuarioAviso">Todos los itens son obligatorios!</div>
     <form method="post">
-                <div class="divUsuarioAviso">Todos los itens son obligatorios!</div>
-                <div class="divUsuarioNombre">Nombre:<input type="text" name="nombre" maxlength="25"/></div>
-                <div class="divUsuarioApellidos">Apellidos:<input type="text" name="apellidos"  maxlength="50"/></div>
-                <div class="divUsuarioComunidad">Comunidad:<select name="lstComunidad">
-                        <!-- BEGIN COMUNIDADE_BLOCK -->
-                        <option value="{COMUNIDADE_ID}">{COMUNIDADE}</option>
-                        <!-- END COMUNIDADE_BLOCK -->
-                    </select> 
-                </div>
-                <div class="divUsuarioProvincia">Provincia:<select name="lstProvincia">
-                        <!-- BEGIN PROVINCIA_BLOCK -->
-                        <option value="{PROVINCIA_ID}">{PROVINCIA}</option>
-                        <!-- END PROVINCIA_BLOCK -->
-                    </select>
-                </div>
-             
-                <div class="divUsuarioMunicipios">Municipios:<select name="lstMunicipios">
-                        <!-- BEGIN MUNICIPIOS_BLOCK -->
-                        <option value="{MUNICIPIOS_ID}">{MUNICIPIOS}</option>
-                        <!-- END MUNICIPIOS_BLOCK -->
-                    </select>
-                </div>
-                <div class="divUsuarioCorreo">Direccion Correo:<input type="text" name="correo" maxlength="100"/></div>
-                <div class="divUsuarioLogin">Login:<input type="text" name="login" maxlength="10"/>
-                    <div class="divUsuarioConfirma"> </div>
-                </div>
-                <div class="divUsuarioContrasena">Password:<input type="text" name="pass" maxlength="6"/></div>
-            <div class="divBtnUsuarioEnviar"><input type="submit" name="enviar" value="Enviar"/></div>
-   </form>       
+        <div class="divUsuarioNombre">Nombre:<input type="text" name="nombre" maxlength="20"/></div>
+        <div class="divUsuarioApellidos">Apellidos:<input type="text" name="apellidos"  maxlength="45"/></div>
+        <div class="divUsuarioComunidad">Comunidad:<select name="lstComunidad">
+                <!-- BEGIN COMUNIDADE_BLOCK -->
+                <option value="{COMUNIDADE_ID}">{COMUNIDADE}</option>
+                <!-- END COMUNIDADE_BLOCK -->
+            </select> 
+        </div>
+        <div class="divUsuarioProvincia">Provincia:<select name="lstProvincia">
+                <!-- BEGIN PROVINCIA_BLOCK -->
+                <option value="{PROVINCIA_ID}">{PROVINCIA}</option>
+                <!-- END PROVINCIA_BLOCK -->
+            </select>
+        </div>
+
+        <div class="divUsuarioMunicipios">Municipios:<select name="lstMunicipios">
+                <!-- BEGIN MUNICIPIOS_BLOCK -->
+                <option value="{MUNICIPIOS_ID}">{MUNICIPIOS}</option>
+                <!-- END MUNICIPIOS_BLOCK -->
+            </select>
+        </div>
+        <div class="divUsuarioCorreo">Direccion Correo:<input type="text" name="correo" maxlength="100"/></div>
+        <div class="divUsuarioLogin">Login:<input type="text" name="login" maxlength="15"/>
+            <div class="divUsuarioConfirma"> </div>
+        </div>
+        <div class="divUsuarioContrasena">Password:<input type="text" name="pass" maxlength="15"/></div>
+        <div class="divUsuarioCheckBox">Quieres recebir notificaciones:<input type="checkbox" name="siono" /></div>
+        <div class="divBtnUsuarioEnviar"><input type="submit" name="enviar" value="Enviar"/></div>
+    </form>       
 </div>
 {AVISO}

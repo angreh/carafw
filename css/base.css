@@ -7,13 +7,13 @@ body{
 .divContenedor{
     margin: 0px auto 10px;
     width: 800px;
-    background: white;
+    background: lightgray;
  
 }
 body .divHeader{
-    width: 100%;
+    width: 800px;
     height: 190px;
-    margin-bottom: 20px;
+    margin: 0px auto 20px;
     
 }
 
@@ -22,7 +22,8 @@ body .divHeader{
     height: 100%;
 }
 body .divPie{
-    width: 100%;
+    width: 800px;
+    margin: 0px auto;
     height: 20px;
     background: lightgray;
 }
