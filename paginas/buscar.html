@@ -1,14 +1,23 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-    <head>
-        <title></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
-</html>
+<div class="divBuscarContenedor">
+    <h2>Busca por tu Festival</h2>
+    <form action="form">
+        <div>Por Nombre:<select name="lstFestivalesNombre">
+                <option value="0">&lt;Todos los Festivales&gt;</option>
+                <!-- BEGIN FESTIVALES_BLOCK -->
+                <option value="{FESTIVALES_ID}">{FESTIVALES_NOMBRE}</option>
+                <!-- END FESTIVALES_BLOCK -->
+            </select></div>
+        <div>Por Fecha:<select name="lstFestivalesFecha">
+                <option value="0">&lt;Todos las Fechas&gt;</option>
+                <!-- BEGIN FESTIVALES2_BLOCK -->
+                <option value="{FESTIVALES_ID}">{FESTIVALES_FECHA}</option>
+                <!-- END FESTIVALES2_BLOCK -->
+            </select></div>
+
+        <div class="divBuscarBuscar"><input type="submit" value="Buscar" name="BuscarFestival"></div>
+    </form>
+    <form action="form">
+        Buscar: <input type="text">
+        <input type="button" value="Buscar">
+    </form>
+</div>
