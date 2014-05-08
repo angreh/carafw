@@ -13,11 +13,6 @@ session_start();
 if (!isset($_SESSION["usuario"])) {
     header("location: login.php");
 }
-$conBBDD = new mysqli("localhost", "root", "123456", "tblfestivales");
-if ($conBBDD->connect_errno) {
-    if ($tpl->exists("AVISO"))
-        $tpl->AVISO = 'no se a podido conectar a la BBDD intetalo mas tarde';
-}
 
 $tpl->show();
 ?>

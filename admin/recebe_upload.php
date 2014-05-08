@@ -1,7 +1,7 @@
 <?php
 
 // Pasta onde o arquivo vai ser salvo
-$_UP['pasta'] = 'imagenes/CarteleraFestivales/';
+$_UP['pasta'] = '../imagenes/CarteleraFestivales/';
 
 // Tamanho máximo do arquivo (em Bytes)
 $_UP['tamanho'] = 1024 * 1024 * 2; // 2Mb
@@ -58,7 +58,6 @@ else {
 // Não foi possível fazer o upload, provavelmente a pasta está incorreta
 
         echo "Não foi possível enviar o arquivo, tente novamente";
-        
     }
 }
 ?>
