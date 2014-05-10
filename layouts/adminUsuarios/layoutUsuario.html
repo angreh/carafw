@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Administracion</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="../../css/admin/admin.css" type="text/css" rel="stylesheet"/>
+        <script type="text/javascript" src="../../js/jquery.js"></script>
+        <script type="text/javascript" src="../../js/adminUsuarios/adminUsuarioIndex.js" ></script>
+        <script type="text/javascript" src="../../js/eventos.js" ></script>
+    </head>
+    <body>
+        <div><a href="../../loguearUsuario.php?desconectadoo=1">desconectar</a></div>
+        <!--header-->
+        <div class="divAdminHeader">
+            <h1>Bienvenido {NOMBRE_USUARIO}!!!</h1>
+        </div> 
+        <!--fin header-->
+        <!--menu-->
+        <div class="divAdminMenu">
+            <nav class="navAdminMenu">
+                <menu id="idMenuUsuarioHome">Home</menu>
+            </nav>
+        </div>
+        <!--fin menu-->
+        <div class="divAdminContenedor">
+            {CONTENIDO}
+        </div>
+        <!--comiezo pie-->
+        <div class="divAdminPie">
+            <div class="divAdminCopy"> Copyrigt &copy; 2014 Sisardo Fernando <!--<img alt="pie" src="../imagenes/pies.jpg"/>--></div>
+        </div> 
+        <!--fin pie-->
+    </body>
+</html>

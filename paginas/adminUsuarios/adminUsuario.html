@@ -1,0 +1,95 @@
+<div class="divUsuarioMitad">
+    <div class="divUsuarioLista">
+        <h1>Tu Lista de Notificaciones</h1>
+        <div>
+            <h1>Localizacion:</h1>
+            <!-- BEGIN LOCALIZA_BLOCK -->
+            <a href="../../adminUsuario/adminUsuario.php?borrarLocaliza={LOCALIZA_ID}"> No Recibir Mas Notificacion </a> - {LOCALIZA_NOMBRE} <br>
+            <!-- END LOCALIZA_BLOCK -->
+        </div>
+        <div>
+            <h2>Estilos:</h2>
+            <!-- BEGIN ESTILO_BLOCK -->
+            <a href="../../adminUsuario/adminUsuario.php?borrarEstilo={ESTILO_ID}"> No Recibir Mas Notificacion </a> - {ESTILO_NOMBRE} <br>
+            <!-- END ESTILO_BLOCK -->
+        </div>
+        <div>
+            <h2>Grupos:</h2>
+            <div>
+                <!-- BEGIN GRUPOS_BLOCK -->
+                <a href="../../adminUsuario/adminUsuario.php?borrarGrupo={GRUPOS_ID}"> No Recibir Mas Notificacion </a> - {GRUPOS_NOMBRE} <br>
+                <!-- END GRUPOS_BLOCK -->
+            </div>
+
+        </div>
+        <div>
+            <h2>Festivales:</h2>
+            <div>
+                <!-- BEGIN FESTIVALES_BLOCK -->
+                <a href="adminUsuario.php?borrarFestival={FESTIVALES_ID}"> No Recibir Mas Notificacion </a> - {FESTIVALES_NOMBRE} <br>
+                <!-- END FESTIVALES_BLOCK -->
+            </div>
+
+        </div>
+        <h1>Recibir Notificaciones Por:</h1>
+        <div class="divAlerta"></div>
+        <div class="divListas">
+            <h2>Localizaciones</h2>
+            <form method="post">
+                <input type="hidden" name="adicionarTipo" value="localizacion" />
+                <div class="divUsuarioComunidad">Comunidad:<select name="lstComunidad">
+                        <!-- BEGIN COMUNIDADE_BLOCK -->
+                        <option value="{COMUNIDADE_ID}">{COMUNIDADE}</option>
+                        <!-- END COMUNIDADE_BLOCK -->
+                    </select> 
+                </div>
+                <div class="divUsuarioProvincia">Provincia:<select name="lstProvincia">
+                        <!-- BEGIN PROVINCIA_BLOCK -->
+                        <option value="{PROVINCIA_ID}" >{PROVINCIA}</option>
+                        <!-- END PROVINCIA_BLOCK -->
+                    </select>
+                </div>
+                <div class="divUsuarioMunicipios">Municipios:<select name="lstMunicipios">
+                        <!-- BEGIN MUNICIPIOS_BLOCK -->
+                        <option value="{MUNICIPIOS_ID}">{MUNICIPIOS}</option>
+                        <!-- END MUNICIPIOS_BLOCK -->
+                    </select>
+                </div>
+                <div><input type="submit" value="Adicionar Localizacion" name="Confirmar"/></div>
+            </form>
+            <h2>Grupos</h2>
+            <form method="post">
+                <input type="hidden" name="adicionarTipo" value="grupos" />
+                <div class="divUsuarioGrupos">Grupos:<select name="lstGrupos">
+                        <!-- BEGIN GRUPO_BLOCK -->
+                        <option value="{GRUPOS_ID}">{GRUPOS_NOMBRE}</option>
+                        <!-- END GRUPO_BLOCK -->
+                    </select> 
+                    <div><input type="submit" value="Adicionar Grupos" name="Confirmar"/></div>
+                </div>
+            </form>
+            <h2>Estilos</h2>
+            <form method="post">
+                <input type="hidden" name="adicionarTipo" value="estilos" />
+                <div class="divUsuarioFestivales">Estilos:<select name="lstEstilos">
+                        <!-- BEGIN ESTILOS_BLOCK -->
+                        <option value="{ESTILOS_ID}">{ESTILOS_NOMBRE}</option>
+                        <!-- END ESTILOS_BLOCK -->
+                    </select> 
+                    <div><input type="submit" value="Adicionar Estilos" name="Confirmar"/></div>
+                </div>
+            </form>
+            <h2>Festivales</h2>
+            <form method="post">
+                <input type="hidden" name="adicionarTipo" value="festivales" />
+                <div class="divUsuarioFestivales">Festivales:<select name="lstFestivales">
+                        <!-- BEGIN FESTIVAL_BLOCK -->
+                        <option value="{FESTIVAL_ID}">{FESTIVAL_NOMBRE}</option>
+                        <!-- END FESTIVAL_BLOCK -->
+                    </select> 
+                    <div><input type="submit" value="Adicionar Festivales" name="Confirmar"/></div>
+                </div>
+            </form>
+        </div>
+        <br><br>
+    </div>

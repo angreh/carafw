@@ -1,4 +1,12 @@
-<h1>Adicionar Festival</h1>
+<h2>Visualizar Festivales</h2>
+<div>
+    <!-- BEGIN FESTIVAL_BLOCK -->
+    <a href="adcionarFestival.php?apagarId={FESTIVAL_ID}"> Borrar </a> | <a href="adicionarCartelera.php?idfestival={FESTIVAL_ID}"> Adicionar Cartelera </a> - {FESTIVAL_NOMBRE} <br>
+    <!-- END FESTIVAL_BLOCK -->
+</div>
+
+
+<h2>Adicionar Festival</h2>
 <form method="post">
     <div>Nombre Festival:<input name="nombre" type="text" size="30" maxlength="50"/></div>
     <div>Fecha Festival:<input name="fecha" type="text" size="15" maxlength="15"/>Formato de la fecha es yyyy-mm-dd</div>

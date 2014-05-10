@@ -1,12 +1,13 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    width: 1890px;
+    width: 100%;
     background: green;
 
 }
 .divContenedor{
     margin: 0px auto 10px;
     width: 800px;
+    position: relative;
     background: lightgray;
  
 }
@@ -16,7 +17,6 @@ body .divHeader{
     margin: 0px auto 20px;
     
 }
-
 .divHeader img{ 
     width: 100%; 
     height: 100%;
@@ -26,6 +26,7 @@ body .divPie{
     margin: 0px auto;
     height: 20px;
     background: lightgray;
+    clear: both;
 }
 body .divPie .divCopy{
     width: 300px;

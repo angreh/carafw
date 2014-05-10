@@ -1,4 +1,9 @@
 <?php
+session_name("session");
+session_start();
+if (!isset($_SESSION["usuario"])) {
+    header("location: login.php");
+}
 require '../clases/Ayudante.php';
 $ayudante = new Ayudante();
 
@@ -8,11 +13,6 @@ $tpl = $ayudante->Template('layouts/admin/layoutAdmin.html');
 // pega esse arquivo e joga dentor de contenido
 $tpl->addFile('CONTENIDO', 'paginas/admin/admin.html');
 
-session_name("session");
-session_start();
-if (!isset($_SESSION["usuario"])) {
-    header("location: login.php");
-}
 
 $tpl->show();
 ?>

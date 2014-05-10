@@ -37,8 +37,8 @@ if (empty($_POST)) {
         $tpl->block('GRUPO_BLOCK');
     }
 } else {
-    $result = $conBBDD->query("insert into tblfestivales.grupos (nombre) values" .
-            " ('" . $_POST["adicionarNombreGrupo"] . "')");
+    $result = $conBBDD->query("insert into tblfestivales.grupos (nombre,descripcion) values" .
+            " ('" . $_POST["adicionarNombreGrupo"] . "','" . $_POST["adicionarDescriGrupo"] . "')");
     if ($result === FALSE) {
         exit('deu merda');
     }

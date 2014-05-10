@@ -4,44 +4,25 @@
 .divIntroducion .divIndexTitulo1{
     text-align: center;
 }
-.divIntroducion .divFestival1{
-    width: 250px;
+#visFestivais {
+    position: relative;
+}
+.divIntroducion .divFestival{
+    width: 210px;
     height: 300px;
     margin-left: 10px;
+    float: left;
+
 }
-.divIntroducion .divFestival2{
-    width: 250px;
-    height: 300px;
-    margin-left: 250px;
-    margin-top: -300px;
+.divIntroducion .divFestival img{
+    width: 70%;
 }
-.divIntroducion .divFestival3{
-    width: 250px;
-    height: 300px;
-    margin-left: 10px;
-}
-.divIntroducion .divFestival4{
-    width: 250px;
-    height: 300px;
-    margin-left: 250px;
-    margin-top: -300px;
-}
-.divIntroducion .divFestival5{
-    width: 250px;
-    height: 300px;
-    margin-left: 10px;
-}
-.divIntroducion .divFestival6{
-    width: 250px;
-    height: 300px;
-    margin-left: 250px;
-    margin-top: -300px;
-}
+
 .divIndexCalendar{
+    position: absolute;
+    right: 0;
+    top: 0;
     width: 350px;
-    height: 110%;
-    margin-left: 450px;
-    margin-top: -970px;
     background: lightgray;
 }
 .divIndexCalendar .divIndexTitulo2{
@@ -50,11 +31,29 @@
 .divIndexCalendar .divIndexUltimaNoticias {
     border: 2px #000 solid ;
     width: 346px;
-    height: 590px;
 }
 .divIndexCalendar #datepicker {
     margin-top: 10px;
 }
 .divIndexCalendar .divIndexRegistrar {
     margin-top: 10px;
+}
+.divHeaderLogin{
+    text-align: center;
+}
+form .divContenidoLogin{
+    width: 60%;
+    text-align: left;
+}
+form .divContenidoLogin .divLogin{
+text-align: right;
+}
+form .divContenidoLogin .divContrasena{
+text-align: right;
+}
+form .divContenidoLogin .divConfirma{
+text-align: right;
+}
+.divAviso{
+    text-align: left;
 }

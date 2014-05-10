@@ -1,5 +1,6 @@
 window.onload = function() {
     $("#datepicker").datepicker();
+    $(".rslides").responsiveSlides();
     document.getElementById("idMenuHome").onclick = function() {
         document.location = "/index.php";
     };
@@ -8,6 +9,9 @@ window.onload = function() {
     };
     document.getElementById("idMenuGaleria").onclick = function() {
         document.location = '/galeria.php';
+    };
+    document.getElementById("idMenuUsuario").onclick = function() {
+        document.location = '/loguearUsuario.php';
     };
 
     document.querySelector("input[name='nombre']").onkeypress = function(e) {

@@ -1,15 +1,21 @@
 <div class="divIntroducion">
     <div class="divIndexTitulo1"><h2>Proximos Festivales</h2></div>
-    <div class="divFestival1"><a href="../informacionFestival.php"><img src="../imagenes/CarteleraFestivales/índice.jpg" alt="festival1"/><br/>Nombre del Festival</a></div>   
-    <div class="divFestival2"><a href="../informacionFestival.php"><img src="../imagenes/CarteleraFestivales/índice2.jpg" alt="festiva2"/><br/>Nombre del Festival</a></div>   
-    <div class="divFestival3"><a href="../informacionFestival.php"><img src="../imagenes/CarteleraFestivales/índice3.jpg" alt="festiva3"/><br/>Nombre del Festival</a></div>   
-    <div class="divFestival4"><a href="../informacionFestival.php"><img src="../imagenes/CarteleraFestivales/índice4.jpg" alt="festiva4"/><br/>Nombre del Festival</a></div>
-    <div class="divFestival5"><a href="../informacionFestival.php"><img src="../imagenes/CarteleraFestivales/índice5.jpg" alt="festiva5"/><br/>Nombre del Festival</a></div>
-    <div class="divFestival6"><a href="../informacionFestival.php"><img src="../imagenes/CarteleraFestivales/índice5.jpg" alt="festiva6"/><br/>Nombre del Festival</a></div>
+    <div id="visFestivais">
+        <!-- BEGIN FESTIVAL_BLOCK -->
+        <div class="divFestival">
+            <a href="../informacionFestival.php?idfestival={FESTIVAL_ID}">
+                <img src="../imagenes/CarteleraFestivales/festival_{FESTIVAL_ID}.jpg" alt="{FESTIVAL_ID}"/>
+                <br/>{FESTIVAL_NOMBRE}
+            </a>
+        </div>   
+        <!-- END FESTIVAL_BLOCK -->
+    </div>
 </div>
 <div class="divIndexCalendar">
     <div class="divIndexTitulo2"><h2>Novedades</h2></div>
-    <div class="divIndexUltimaNoticias">El festival Fib acaban de anunciar un grupo nuevo para la cartelera The Killers.</div>
+    <div class="divIndexUltimaNoticias"><p>El festival Fib acaban de anunciar un grupo nuevo para la cartelera The Killers. la fecha prevista para el festival es la misma
+            esperemos que todos que vayan al festival lo pases muy bien.</p></div>
     <div id="datepicker"></div>
     <div class="divIndexRegistrar">Suscribete en nuestra pagina y reciba notificaciones de los festivales, es muy simples haz click aqui -><a href="../registro/usuario.php">Registrarte</a></div>
 </div>
+<br style="clear: both;">

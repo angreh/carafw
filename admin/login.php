@@ -20,14 +20,14 @@ if (isset($_GET["desconectado"]) && $_GET["desconectado"] == 1) {
 };
 if (!empty($_POST)) {
       
-    if (preg_match("/^[A-Z]{1}[a-z]{0,9}$/", $_POST["login"]) && preg_match("/^[A-Z]{1}[a-z]{1,5}[0-9]{1,3}$/", $_POST["pass"])) {
+ 
      
         $conBBDD = new mysqli("localhost", "root", "123456", "tblfestivales");
         if ($conBBDD->connect_errno) {
             if ($tpl->exists("AVISO"))
                 $tpl->AVISO = 'no se a podido conectar a la BBDD intetalo mas tarde';
         };
-        $rcsDato = $conBBDD->query("SELECT login from tblfestivales.admnistrador where login='" . $_POST["login"] . "' and password='" . $_POST["pass"] . "'");
+        $rcsDato = $conBBDD->query("SELECT login from tblfestivales.admnistrador where login='" . $_POST["login"] . "' and password='" . md5($_POST["pass"]) . "'");
         
         if ($rcsDato->num_rows == 1) {
             session_name("session");
@@ -36,7 +36,7 @@ if (!empty($_POST)) {
             header("location: admin.php");
         };
         $conBBDD->close();
-    };
+  
     
 }
 $tpl->ACTION = $_SERVER["PHP_SELF"];
