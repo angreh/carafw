@@ -28,6 +28,10 @@ if (!empty($_GET) && isset($_GET['apagarId'])) {
     header("location: adcionarGrupos.php");
     //linha para redirecionar
 };
+if (!empty($_GET) && isset($_GET['modificarId'])) {
+    header("location: modificarGrupo.php");
+    //linha para redirecionar
+};
 if (empty($_POST)) {
 // pega esse arquivo e joga dentor de contenido
     $tpl->addFile('CONTENIDO', 'paginas/admin/adcionarGrupos.html');

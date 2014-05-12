@@ -1,7 +1,18 @@
 <?php
 
+session_name("session");
+session_start();
+if (!isset($_SESSION["usuario"])) {
+    header("location: login.php");
+}
 // Pasta onde o arquivo vai ser salvo
-$_UP['pasta'] = '../imagenes/GaleriaFotos/';
+$filename = '../imagenes/GaleriaFotos/' . $_POST['lstFestival'].'/';
+
+if(!file_exists($filename)) {
+    echo "The file $filename exists";
+    mkdir($filename);
+}
+$_UP['pasta'] = '../imagenes/GaleriaFotos/' . $_POST['lstFestival'].'/';
 
 // Tamanho máximo do arquivo (em Bytes)
 $_UP['tamanho'] = 1024 * 1024 * 2; // 2Mb
@@ -47,7 +58,7 @@ else {
         $nome_final = time() . '.jpg';
     } else {
 // Mantém o nome original do arquivo
-        $nome_final = "festival_".$idFestival.".jpg";
+        $nome_final = $_FILES['arquivo']['name'];
     }
 
 // Depois verifica se é possível mover o arquivo para a pasta escolhida
@@ -62,4 +73,5 @@ else {
         echo "Não foi possível enviar o arquivo, tente novamente";
     }
 }
+header("location: adcionarFotos.php");
 ?>

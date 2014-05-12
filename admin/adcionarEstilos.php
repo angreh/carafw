@@ -14,7 +14,7 @@ if ($conBBDD->connect_errno) {
     if ($tpl->exists("AVISO"))
         $tpl->AVISO = 'no se a podido conectar a la BBDD intetalo mas tarde';
 }
-$lstEstilos = $conBBDD->query("select id,nombre from estilos");
+
 
 if (!empty($_GET) && isset($_GET['apagarId'])) {
 
@@ -29,6 +29,7 @@ if (!empty($_GET) && isset($_GET['apagarId'])) {
 if (empty($_POST)) {
 
     $tpl->addFile('CONTENIDO', 'paginas/admin/adcionarEstilos.html');
+    $lstEstilos = $conBBDD->query("select id,nombre from estilos");
     while ($rcsEstilos = $lstEstilos->fetch_object()) {
         $tpl->ESTILO_ID = $rcsEstilos->id;
         $tpl->ESTILO_NOMBRE = $rcsEstilos->nombre;

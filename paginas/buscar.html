@@ -1,23 +1,27 @@
 <div class="divBuscarContenedor">
-    <h2>Busca por tu Festival</h2>
+    <h1>Busca Por Tu Festival!!!</h1>
     <form action="form">
-        <div>Por Nombre:<select name="lstFestivalesNombre">
+        <div>Por Nombre:
+            <select name="lstFestivalesNombre">
                 <option value="0">&lt;Todos los Festivales&gt;</option>
                 <!-- BEGIN FESTIVALES_BLOCK -->
                 <option value="{FESTIVALES_ID}">{FESTIVALES_NOMBRE}</option>
                 <!-- END FESTIVALES_BLOCK -->
-            </select></div>
-        <div>Por Fecha:<select name="lstFestivalesFecha">
+            </select>
+        </div>
+        <div class="divBuscarBuscar"><input type="submit" value="Buscar Por Nombre" name="BuscarFestival"></div><br>
+        <div>Por Fecha:
+            <select name="lstFestivalesFecha">
                 <option value="0">&lt;Todos las Fechas&gt;</option>
                 <!-- BEGIN FESTIVALES2_BLOCK -->
                 <option value="{FESTIVALES_ID}">{FESTIVALES_FECHA}</option>
                 <!-- END FESTIVALES2_BLOCK -->
-            </select></div>
-
-        <div class="divBuscarBuscar"><input type="submit" value="Buscar" name="BuscarFestival"></div>
+            </select>
+        </div>
+        <div class="divBuscarBuscar"><input type="submit" value="Buscar Por Fechas" name="BuscarFestival"></div>
     </form>
     <form action="form">
-        Buscar: <input type="text">
+        Buscar: <input type="text"><br>
         <input type="button" value="Buscar">
     </form>
 </div>

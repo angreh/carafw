@@ -14,9 +14,14 @@ if ($conBBDD->connect_errno) {
 }
 $lstFestivales = $conBBDD->query("select id,nombre from festivales order by fecha limit 6");
 while ($rcsFestivales = $lstFestivales->fetch_object()) {
-        $tpl->FESTIVAL_ID = $rcsFestivales->id;
-        $tpl->FESTIVAL_NOMBRE = $rcsFestivales->nombre;
-        $tpl->block('FESTIVAL_BLOCK');  
+    $tpl->FESTIVAL_ID = $rcsFestivales->id;
+    $tpl->FESTIVAL_NOMBRE = $rcsFestivales->nombre;
+    $tpl->block('FESTIVAL_BLOCK');
 }
+$lstNovedades = $conBBDD->query("select idnovedades,novedades from novedades limit 1");
+$rcsNoveda = $lstNovedades->fetch_object();
+$tpl->NOVEDADES_NOMBRE = $rcsNoveda->novedades;
+
+
 
 $tpl->show();

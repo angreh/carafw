@@ -1,9 +1,14 @@
 <div>
     <h1>Galeria de Fotos </h1>
     <form method="post" enctype="multipart/form-data" action="/admin/GaleriaFotos.php">
-
+        <div>Festivales:<select name="lstFestival">
+            <!-- BEGIN FESTIVAL_BLOCK -->
+            <option value="{FESTIVAL_ID}">{FESTIVAL_NOMBRE}</option>
+            <!-- END FESTIVAL_BLOCK -->
+        </select> 
+    </div><br>
         <label>Arquivo</label>
-
+        <input type="hidden" />
         <input type="file" name="arquivo" />
 
         <input type="submit" value="Enviar" />

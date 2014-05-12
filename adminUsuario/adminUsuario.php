@@ -52,10 +52,33 @@ if (!empty($_GET) && isset($_GET['borrarFestival'])) {
     header("location: adminUsuario.php");
     //linha para redirecionar
 };
+// borrar comunidad
 if (!empty($_GET) && isset($_GET['borrarLocaliza'])) {
 
     //query de apagar o registro
-    $borrar = $conBBDD->query("delete from tblfestivales.localizacion_usuario where localizacion_usuario.idFestivales=" . $_GET['borrarLocaliza']);
+    $borrar = $conBBDD->query("delete from tblfestivales.localizacion_usuario where localizacion_usuario.idComunidad=" . $_GET['borrarLocaliza']);
+    if ($borrar === FALSE) {
+        exit('no a sido borrado ');
+    }
+    header("location: adminUsuario.php");
+    //linha para redirecionar
+};
+// borrar provincia
+if (!empty($_GET) && isset($_GET['borrarLocaliza1'])) {
+
+    //query de apagar o registro
+    $borrar = $conBBDD->query("delete from tblfestivales.localizacion_usuario where localizacion_usuario.idProvincia=" . $_GET['borrarLocaliza1']);
+    if ($borrar === FALSE) {
+        exit('no a sido borrado ');
+    }
+    header("location: adminUsuario.php");
+    //linha para redirecionar
+};
+// borrar municipio
+if (!empty($_GET) && isset($_GET['borrarLocaliza2'])) {
+
+    //query de apagar o registro
+    $borrar = $conBBDD->query("delete from tblfestivales.localizacion_usuario where localizacion_usuario.idMunicipio=" . $_GET['borrarLocaliza2']);
     if ($borrar === FALSE) {
         exit('no a sido borrado ');
     }
@@ -66,6 +89,8 @@ if (!empty($_GET) && isset($_GET['borrarLocaliza'])) {
 
 if (empty($_POST)) {
     $tpl->addFile('CONTENIDO', 'paginas/adminUsuarios/adminUsuario.html');
+
+    // la lista de comundiades 
     $rcsDatos = $conBBDD->query("select id, comunidad from tblfestivales.comunidades order by comunidad;");
     if ($rcsDatos->num_rows == 0) {
         if ($tpl->exists("AVISO"))
@@ -120,6 +145,8 @@ if (empty($_POST)) {
         $tpl->ESTILOS_NOMBRE = $oEstilos->nombre;
         $tpl->block('ESTILOS_BLOCK');
     }
+
+    // donde empieza las cosas anidadas
     $lstFestivalAnidados = $conBBDD->query("select festivales.id,festivales.nombre from tblfestivales.festivales inner join tblfestivales.usuarios_festivales on usuarios_festivales.idFestivales=festivales.id where idUsuarios=" . $_SESSION["usuarioID"]);
     while ($oFestivalAnidados = $lstFestivalAnidados->fetch_object()) {
         $tpl->FESTIVALES_ID = $oFestivalAnidados->id;
@@ -138,18 +165,47 @@ if (empty($_POST)) {
         $tpl->ESTILO_NOMBRE = $oEstilosAnidados->nombre;
         $tpl->block('ESTILO_BLOCK');
     }
-    $lstLocalizaAnidados = $conBBDD->query("select estilos.id,estilos.nombre from tblfestivales.estilos inner join tblfestivales.estilos_usuarios on estilos_usuarios.idEstilos=estilos.id where idUsuarios=" . $_SESSION["usuarioID"]);
+    // donde se enseña la lista
+    $lstLocalizaAnidados = $conBBDD->query("select comunidades.id,comunidades.comunidad from tblfestivales.comunidades" .
+            " inner join tblfestivales.localizacion_usuario on comunidades.id = localizacion_usuario.idComunidad where localizacion_usuario.idUsuarios=" . $_SESSION["usuarioID"] . " order by localizacion_usuario.idUsuarios;");
     while ($oLocalizaAnidados = $lstLocalizaAnidados->fetch_object()) {
         $tpl->LOCALIZA_ID = $oLocalizaAnidados->id;
-        $tpl->LOCALIZA_NOMBRE = $oLocalizaAnidados->nombre;
+        $tpl->LOCALIZA_NOMBRE = $oLocalizaAnidados->comunidad;
         $tpl->block('LOCALIZA_BLOCK');
+    }
+    $lstProvinciaAnidados = $conBBDD->query("select provincias.id,provincias.provincia from tblfestivales.provincias" .
+            " inner join tblfestivales.localizacion_usuario on provincias.id = localizacion_usuario.idProvincia where localizacion_usuario.idUsuarios=" . $_SESSION["usuarioID"] . " order by localizacion_usuario.idUsuarios;");
+    while ($oLocalizaAnidados = $lstProvinciaAnidados->fetch_object()) {
+        $tpl->LOCALIZA1_ID = $oLocalizaAnidados->id;
+        $tpl->LOCALIZA_NOMBRE = $oLocalizaAnidados->provincia;
+        $tpl->block('LOCALIZA1_BLOCK');
+    }
+    $lstMuniAnidados = $conBBDD->query("select municipios.idmunicipio ,municipios.municipio from tblfestivales.municipios" .
+            " inner join tblfestivales.localizacion_usuario on municipios.idmunicipio = localizacion_usuario.idMunicipio where localizacion_usuario.idUsuarios=" . $_SESSION["usuarioID"] . " order by localizacion_usuario.idUsuarios;");
+    while ($oLocalizaAnidados = $lstMuniAnidados->fetch_object()) {
+        $tpl->LOCALIZA2_ID = $oLocalizaAnidados->idmunicipio;
+        $tpl->LOCALIZA_NOMBRE = $oLocalizaAnidados->municipio;
+        $tpl->block('LOCALIZA2_BLOCK');
     }
     $tpl->show();
 } else {
-    if ($_POST['adicionarTipo'] == 'localizacion') {
+    // insertar datos
+    if ($_POST['adicionarTipo'] == 'comunidad') {
 
-        $result = $conBBDD->query("insert into tblfestivales.localizacion_usuario (localizacion_usuario.idUsuarios,localizacion_usuario.idcomunidad,localizacion_usuario.idprovincia,localizacion_usuario.idmunicipio) values" .
-                " (" . $_SESSION["usuarioID"] . "," . $_POST["lstComunidad"] . "," . $_POST["lstProvincia"] . "," . $_POST["lstMunicipios"] . " ) ");
+        $result = $conBBDD->query("insert into tblfestivales.localizacion_usuario (localizacion_usuario.idUsuarios,localizacion_usuario.idcomunidad) values" .
+                " (" . $_SESSION["usuarioID"] . "," . $_POST["lstComunidad"] . " ) ");
+        if ($result === FALSE) {
+            exit('no a sido posible inserta los datos');
+        }
+    } elseif ($_POST['adicionarTipo'] == 'provincia') {
+        $result = $conBBDD->query("insert into tblfestivales.localizacion_usuario (localizacion_usuario.idUsuarios,localizacion_usuario.idprovincia) values" .
+                " (" . $_SESSION["usuarioID"] . "," . $_POST["lstProvincia"] . " ) ");
+        if ($result === FALSE) {
+            exit('no a sido posible inserta los datos');
+        }
+    } elseif ($_POST['adicionarTipo'] == 'municipio') {
+        $result = $conBBDD->query("insert into tblfestivales.localizacion_usuario (localizacion_usuario.idUsuarios,localizacion_usuario.idmunicipio) values" .
+                " (" . $_SESSION["usuarioID"] . "," . $_POST["lstMunicipios"] . " ) ");
         if ($result === FALSE) {
             exit('no a sido posible inserta los datos');
         }

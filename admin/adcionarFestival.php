@@ -15,8 +15,12 @@ if ($conBBDD->connect_errno) {
         $tpl->AVISO = 'no se a podido conectar a la BBDD intetalo mas tarde';
 }
 if (!empty($_GET) && isset($_GET['apagarId'])) {
-//Vai cair aqui quando existir um id para pagar o festival
-    //query de apagar o registro
+//query de apagar o registro
+    $borrar = $conBBDD->query("delete from festivales where id=" . $_GET['apagarId']);
+    if ($borrar === FALSE) {
+        exit('no a sido borrado ');
+    }
+    header("location: adcionarFestival.php");
     //linha para redirecionar
 }
 // Define cuáles son los códigos HTML que se utilizarán
@@ -32,7 +36,7 @@ if (empty($_POST)) {
         $tpl->FESTIVAL_NOMBRE = $oFestival->nombre;
         $tpl->block('FESTIVAL_BLOCK');
     }
-
+    // select de localizacion
     $rcsDatos = $conBBDD->query("select id, comunidad from tblfestivales.comunidades order by comunidad;");
     if ($rcsDatos->num_rows == 0) {
         if ($tpl->exists("AVISO"))

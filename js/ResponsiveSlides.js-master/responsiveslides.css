@@ -31,3 +31,10 @@
   width: 100%;
   border: 0;
   }
+  .divTamanoFoto{
+      position: relative;
+      height: 250px;
+  }
+  .divTamanoFoto .rslides,.divTamanoFoto .rslides img {
+      height: 100%;
+  }
