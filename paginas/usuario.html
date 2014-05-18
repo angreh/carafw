@@ -2,8 +2,6 @@
     <div class="divUsuarioTitulo"><h1>Registro</h1></div>
     <div class="divUsuarioAviso">Todos los itens son obligatorios!</div>
     <form method="post">
-        <div class="divUsuarioNombre">Nombre:<input type="text" name="nombre" maxlength="20"/></div>
-        <div class="divUsuarioApellidos">Apellidos:<input type="text" name="apellidos"  maxlength="45"/></div>
         <div class="divUsuarioComunidad">Comunidad:<select name="lstComunidad">
                 <!-- BEGIN COMUNIDADE_BLOCK -->
                 <option value="{COMUNIDADE_ID}">{COMUNIDADE}</option>
@@ -16,7 +14,6 @@
                 <!-- END PROVINCIA_BLOCK -->
             </select>
         </div>
-
         <div class="divUsuarioMunicipios">Municipios:<select name="lstMunicipios">
                 <!-- BEGIN MUNICIPIOS_BLOCK -->
                 <option value="{MUNICIPIOS_ID}">{MUNICIPIOS}</option>
@@ -27,8 +24,7 @@
         <div class="divUsuarioLogin">Login:<input type="text" name="login" maxlength="15"/>
             <div class="divUsuarioConfirma"> </div>
         </div>
-        <div class="divUsuarioContrasena">Password:<input type="text" name="pass" maxlength="15"/></div>
-        <div class="divUsuarioCheckBox">Quieres recebir notificaciones:<input type="checkbox" name="siono" /></div>
+        <div class="divUsuarioContrasena">Password:<input type="password" name="pass" maxlength="15"/></div>
         <div class="divBtnUsuarioEnviar"><input type="submit" name="enviar" value="Enviar"/></div>
     </form>       
 </div>

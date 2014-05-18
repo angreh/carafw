@@ -18,9 +18,9 @@ if ($conBBDD->connect_errno) {
     if ($tpl->exists("AVISO"))
         $tpl->AVISO = 'no se a podido conectar a la BBDD intetalo mas tarde';
 };
-$nombreUsuario = $conBBDD->query("select id,nombre from usuarios");
+$nombreUsuario = $conBBDD->query("select id,login from usuarios");
 $rcsDato = $nombreUsuario->fetch_object();
-$tpl->NOMBRE_USUARIO = $rcsDato->nombre;
+$tpl->NOMBRE_USUARIO = $rcsDato->login;
 
 if (!empty($_GET) && isset($_GET['borrarGrupo'])) {
 

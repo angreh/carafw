@@ -50,8 +50,8 @@ if (empty($_POST)) {
     }
 } else {
 
-    $result = $conBBDD->query("insert into usuarios (nombre,apellido,idmunicipio,email,login,password) values" .
-            " ('" . $_POST["nombre"] . "','" . $_POST["apellidos"] . "','" . $_POST["lstMunicipios"] . "','" . $_POST["correo"] . "','" . $_POST["login"] . "','" . md5($_POST["pass"]) . "')");
+    $result = $conBBDD->query("insert into usuarios (idmunicipio,email,login,password) values" .
+            " ('" . $_POST["lstMunicipios"] . "','" . $_POST["correo"] . "','" . $_POST["login"] . "','" . md5($_POST["pass"]) . "')");
     if ($result === FALSE) {
         exit('no a sido posible inserta los datos');
     }

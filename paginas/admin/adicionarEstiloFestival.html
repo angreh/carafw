@@ -1,12 +1,22 @@
+<h1>Lista de Estilo Del Festival</h1>
+<div>
+    <!-- BEGIN FESTILO_BLOCK -->
+    <a href="adicionarGrupoFestival.php?apagarId={FESTILO_ID}">Borrar</a>  - {FESTILO_NOMBRE} <br>
+    <!-- END FESTILO_BLOCK -->
+</div>
+
 <h1>Adicionar Estilos A Festivales</h1>
 <div>
     <form method="post">
-        <div>Estilos:<select name="lstEstilos">
+        <div>Estilos:
+            <select name="lstEstilos">
                 <!-- BEGIN ESTILOS_BLOCK -->
                 <option value="{ESTILOS_ID}">{ESTILOS}</option>
                 <!-- END ESTILOS_BLOCK -->
             </select> 
         </div>
-        <div><input type="submit" value="Adicionar Estilos" name="confirmar"/></div>
+        <div>
+            <input type="submit" value="Adicionar Estilos" name="confirmar"/>
+        </div>
     </form>
 </div>

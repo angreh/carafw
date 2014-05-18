@@ -19,16 +19,16 @@ if ($conBBDD->connect_errno) {
 }
 if (empty($_POST)) {
     $tpl->addFile('CONTENIDO', 'paginas/admin/admin.html');
-    $lstNovedades=$conBBDD->query("select idnovedades,novedades from novedades");
-    $rcsNoveda=$lstNovedades->fetch_object();
-    $tpl->NOVEDADES_NOMBRE=$rcsNoveda->novedades;
+    $lstNovedades = $conBBDD->query("select idnovedades,novedades from novedades");
+    $rcsNoveda = $lstNovedades->fetch_object();
+    $tpl->NOVEDADES_NOMBRE = $rcsNoveda->novedades;
 } else {
     $modificar = $conBBDD->query("UPDATE `tblfestivales`.`novedades` SET `novedades`='" . $_POST["modificarNovedades"] . "' ");
-        if ($modificar === FALSE) {
-            exit('no a sido posible inserta los datos');
-        }
-    
-     header("location: admin.php");
+    if ($modificar === FALSE) {
+        exit('no a sido posible inserta los datos');
+    }
+
+    header("location: admin.php");
 }
 
 $tpl->show();

@@ -1,5 +1,13 @@
 window.onload = function() {
-    $("#datepicker").datepicker();
+
+    $("#datepicker").datepicker({
+        inline: true,
+        onSelect: function(dateStr) {
+            $("#divListaFestivales").load('/listaFestivais.php?fechaFesti='+dateStr);
+        },
+        beforeShowDay: highlightDays
+    });
+
     $(".rslides").responsiveSlides();
     document.getElementById("idMenuHome").onclick = function() {
         document.location = "/index.php";
@@ -72,3 +80,13 @@ funcionOnKeyPress = function(e) {
     }
     return strChar;
 };
+
+function highlightDays(date) {
+    for (var i = 0; i < datess.length; i++) {
+        //alert('(' + date + ') - (' + datess[i] + ') ' + (datess[i].toString() === date.toString()) + ' , ' + typeof (date) + ' , ' + typeof (datess[i]));
+        if (datess[i].toString() === date.toString()) {
+            return [true, 'highlight-date'];
+        }
+    }
+    return [true, ''];
+}

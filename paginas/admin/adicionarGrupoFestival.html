@@ -1,12 +1,22 @@
+<h1>Lista de Grupos en el Festival</h1>
+<div>
+    <!-- BEGIN GRUPOS_BLOCK -->
+    <a href="adicionarGrupoFestival.php?apagarId={ID_GFESTIVAL}">Borrar</a>  - {GRUPOS_NOMBRE} <br>
+    <!-- END GRUPOS_BLOCK -->
+</div>
+
 <h1>Adicionar Grupos A Festivales</h1>
 <div>
     <form method="post">
-        <div>Grupos:<select name="lstGrupos">
+        <div>Grupos:
+            <select name="lstGrupos">
                 <!-- BEGIN GRUPO_BLOCK -->
                 <option value="{GRUPO_ID}">{GRUPOS}</option>
                 <!-- END GRUPO_BLOCK -->
             </select> 
         </div>
-        <div><input type="submit" value="Adicionar Grupo" name="confirmar"/></div>
+        <div>
+            <input type="submit" value="Adicionar Grupo" name="confirmar"/>
+        </div>
     </form>
 </div>

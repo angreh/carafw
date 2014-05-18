@@ -15,9 +15,6 @@ if (isset($_GET["desconectadoo"]) && $_GET["desconectadoo"] == 1) {
     header("location: loguearUsuario.php");
 };
 if (!empty($_POST)) {
-
-
-
     $conBBDD = new mysqli("localhost", "root", "123456", "tblfestivales");
     if ($conBBDD->connect_errno) {
         if ($tpl->exists("AVISO"))

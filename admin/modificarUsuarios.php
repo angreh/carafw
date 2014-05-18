@@ -16,7 +16,7 @@ if ($conBBDD->connect_errno) {
     if ($tpl->exists("AVISO"))
         $tpl->AVISO = 'no se a podido conectar a la BBDD intetalo mas tarde';
 }
-$lstUsuarios = $conBBDD->query("select id,nombre from usuarios");
+$lstUsuarios = $conBBDD->query("select id,login from usuarios");
 
 if (!empty($_GET) && isset($_GET['apagarId'])) {
 
@@ -33,10 +33,8 @@ if (!empty($_GET) && isset($_GET['apagarId'])) {
 $tpl->addFile('CONTENIDO', 'paginas/admin/modificarUsuarios.html');
 while ($rcsUsuarios = $lstUsuarios->fetch_object()) {
     $tpl->USUARIO_ID = $rcsUsuarios->id;
-    $tpl->USUARIO_NOMBRE = $rcsUsuarios->nombre;
+    $tpl->USUARIO_NOMBRE = $rcsUsuarios->login;
     $tpl->block('USUARIO_BLOCK');
 }
-
-
 $tpl->show();
 ?>

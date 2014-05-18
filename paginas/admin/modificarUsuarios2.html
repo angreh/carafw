@@ -1,8 +1,13 @@
 <h1>Modificar Usuario</h1>
 <form method="post">
+    <!--
+    em algum lugar do formulário deveria existir um campo hidden com o ID 
+    do usuário, para você saber qual é que você vai modificar ... pra poder 
+    passá-lo via post 
+    -->
+    
+    <!--<input type="hidden" name="idUsuario" value="{idModificarUsuario}" />-->
     <input type="hidden" name="modificarUsuario" value="usuario" />
-    <div>Nombre:<input name="modificarNombreUsuario" type="text" size="30" maxlength="50" value="{USUARIO_NOMBRE}"/></div>
-    <div>Apellido:<input name="modificarApellidoUsuario" type="text" size="30" maxlength="50" value="{USUARIO_APELLIDO}"/></div>
     <div class="divUsuarioComunidad">Comunidad:<select name="lstComunidad">
             <!-- BEGIN COMUNIDADE_BLOCK -->
             <option value="{COMUNIDADE_ID}"{COMUNIDADE_SELECT}>{COMUNIDADE}</option>

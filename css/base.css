@@ -1,14 +1,14 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     width: 100%;
-    background: green;
+    background: #37598C;
 
 }
 .divContenedor{
     margin: 0px auto 10px;
     width: 800px;
     position: relative;
-    background: lightgray;
+    background: #FE9D3B;
  
 }
 body .divHeader{
@@ -25,7 +25,7 @@ body .divPie{
     width: 800px;
     margin: 0px auto;
     height: 20px;
-    background: lightgray;
+    background: #FE9D3B;
     clear: both;
 }
 body .divPie .divCopy{
@@ -51,11 +51,11 @@ body .divPie .divCopy{
     border-radius:3px;
     width:100%;
     height:60px;
-    background:linear-gradient(#FFA500 0%, #FFFF00 100%);
-    background:-moz-linear-gradient(#FFA500 0%, #FFFF00 100%);
-    background:-ms-linear-gradient(#FFA500 0%, #FFFF00 100%);
-    background:-o-linear-gradient(#FFA500 0%, #FFFF00 100%);
-    background:-webkit-linear-gradient(#FFA500 0%, #FFFF00 100%);
+    background:linear-gradient(#b87001 0%, #FFFF00 100%);
+    background:-moz-linear-gradient(#b87001 0%, #FFFF00 100%);
+    background:-ms-linear-gradient(#b87001 0%, #FFFF00 100%);
+    background:-o-linear-gradient(#b87001 0%, #FFFF00 100%);
+    background:-webkit-linear-gradient(#b87001 0%, #FFFF00 100%);
 }
 .navMenu menu{
     display:inline-block;

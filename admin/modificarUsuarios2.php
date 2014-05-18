@@ -17,13 +17,12 @@ if ($conBBDD->connect_errno) {
 if (empty($_POST)) {
     // retorna la tabla festival
     $tpl->addFile('CONTENIDO', 'paginas/admin/modificarUsuarios2.html');
-    $lstUsuarios = $conBBDD->query("select usuarios.nombre, usuarios.apellido, comunidades.id as comunidadeID, provincias.id as provinciaID ,municipios.idmunicipio, usuarios.email FROM tblfestivales.usuarios " .
+    $lstUsuarios = $conBBDD->query("SELECT comunidades.id as comunidadeID, provincias.id as provinciaID ,municipios.idmunicipio, usuarios.email FROM tblfestivales.usuarios " .
             "inner join tblfestivales.municipios on usuarios.idmunicipio = municipios.idmunicipio inner join tblfestivales.provincias on municipios.idprovincia = provincias.id " .
-            "inner join tblfestivales.comunidades on provincias.comunidad_id = comunidades.id where usuarios.id=" . $_GET["idmodificar"]);
+            "inner join tblfestivales.comunidades on provincias.comunidad_id = comunidades.id where usuarios.id = " . $_GET["idModificarUsuario"] . " ");
     $rcsUsuarios = $lstUsuarios->fetch_object();
-    $tpl->USUARIO_NOMBRE = $rcsUsuarios->nombre;
-    $tpl->USUARIO_APELLIDO = $rcsUsuarios->apellido;
     $tpl->USUARIO_CORREO = $rcsUsuarios->email;
+
 
     // retorna las localizaciones
     $rcsDatos = $conBBDD->query("select id, comunidad from tblfestivales.comunidades order by comunidad;");
@@ -79,11 +78,11 @@ if (empty($_POST)) {
     }
 } else {
     if ($_POST['modificarUsuario'] == 'usuario') {
-        $modificar = $conBBDD->query("UPDATE `tblfestivales`.`usuarios` SET `nombre`='" . $_POST["modificarNombreUsuario"] . "', `apellido`='" . $_POST["modificarApellidoUsuario"] . "', `idmunicipio`='" . $_POST["lstMunicipios"] . "', `email`='" . $_POST["modificarCorreoUsuario"] . "' where usuarios.id='" . $_GET["modificarID"] . "' ");
+        $modificar = $conBBDD->query("UPDATE `tblfestivales`.`usuarios` SET `idmunicipio`='" . $_POST["lstMunicipios"] . "', `email`='" . $_POST["modificarCorreoUsuario"] . "' where usuarios.id=" . $_GET["idModificarUsuario"] . " ");
         if ($modificar === FALSE) {
             exit('no a sido posible inserta los datos');
         }
     }
-    header("location: modificarUsuarios2.php");
+    header("location: modificarUsuarios.php");
 }
 $tpl->show();

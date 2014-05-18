@@ -19,7 +19,7 @@ if (empty($_POST)) {
     $tpl->addFile('CONTENIDO', 'paginas/admin/modificarFestival.html');
     $lstGrupos = $conBBDD->query("SELECT festivales.nombre ,festivales.fecha ,comunidades.id as comunidadeID ,provincias.id as provinciaID ,municipios.idmunicipio ,festivales.descripcion FROM tblfestivales.festivales " .
             "inner join tblfestivales.municipios on festivales.idmunicipio = municipios.idmunicipio inner join tblfestivales.provincias on municipios.idprovincia = provincias.id " .
-            "inner join tblfestivales.comunidades on provincias.comunidad_id = comunidades.id where festivales.id='" . $_GET["idmodificar"] . "' ");
+            "inner join tblfestivales.comunidades on provincias.comunidad_id = comunidades.id where festivales.id=" . $_GET["idmodificar"] . " ");
     $rcsGrupos = $lstGrupos->fetch_object();
     $tpl->FESTIVAL_NOMBRE = $rcsGrupos->nombre;
     $tpl->FESTIVAL_FECHA = $rcsGrupos->fecha;
