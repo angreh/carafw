@@ -23,12 +23,11 @@ if (empty($_POST)) {
         $tpl->block('FESTIVALES_BLOCK');
         $tpl->block('FESTIVALES2_BLOCK');
     }
-} else {
-    
-}
-
-
-
-
-
+    $rcsgrupos=$conBBDD->query("select id,nombre from grupos order by nombre");
+    while ($ogrupos=$rcsgrupos->fetch_object()) {
+        $tpl->GRUPOS_ID = $ogrupos->id;
+        $tpl->GRUPOS_NOMBRE = $ogrupos->nombre;
+        $tpl->block('GRUPOS_BLOCK');
+    }
+} 
 $tpl->show();

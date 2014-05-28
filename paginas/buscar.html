@@ -9,7 +9,9 @@
                 <!-- END FESTIVALES_BLOCK -->
             </select>
         </div>
-        <div class="divBuscarBuscar"><input type="submit" value="Buscar Por Nombre" name="BuscarFestival"></div><br>
+        <div class="divBuscarBuscar"><input type="submit" value="Buscar Por Nombre" name="BuscarFestival" id="buscarNombre"></div><br>
+    </form>
+    <form action="form">
         <div>Por Fecha:
             <select name="lstFestivalesFecha">
                 <option value="0">&lt;Todos las Fechas&gt;</option>
@@ -18,10 +20,23 @@
                 <!-- END FESTIVALES2_BLOCK -->
             </select>
         </div>
-        <div class="divBuscarBuscar"><input type="submit" value="Buscar Por Fechas" name="BuscarFestival"></div>
+        <div class="divBuscarBuscar"><input type="submit" value="Buscar Por Fechas" name="BuscarPorFecha" id="buscarFecha"></div>
+    </form>
+    <form action="form">
+        <div>Por Grupos:
+            <select name="lstFestivalesFecha">
+                <option value="0">&lt;Todos los Grupos&gt;</option>
+                <!-- BEGIN GRUPOS_BLOCK -->
+                <option value="{GRUPOS_ID}">{GRUPOS_NOMBRE}</option>
+                <!-- END GRUPOS_BLOCK -->
+            </select>
+        </div>
+        <div class="divBuscarBuscar"><input type="submit" value="Buscar Por Grupos" name="BuscarPorGrupos" id="buscarGrupo"></div>
     </form>
     <form action="form">
         Buscar: <input type="text"><br>
         <input type="button" value="Buscar">
-    </form>
+    </form><br><br>
+    <div id="divTabla">
+    </div>
 </div>

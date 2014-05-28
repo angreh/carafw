@@ -7,4 +7,17 @@ $().ready(function() {
     $("select[name='lstProvincia']").change(function() {
         $("select[name='lstMunicipios']").load("/lstDireccion/lstMunicipios.php", {idLocalidad: $("select[name='lstProvincia']").val()});
     });
+//    $("#buscarNombre").click(function() {
+//        $("#divTabla").load("consultaBuscar.php", {nombreFesti: $("#lstFestivalesNombre").val()});
+//    });
+//    $("#buscarFecha").click(function() {
+//        $("#divTabla").load("consultaBuscar.php", {fechaFesti: $("#lstFestivalesFecha").val()});
+//    });
+//    $("#lstFestivalesNombre").change(function() {
+//        $("#divTabla").html("");
+//    });
+//    $("#lstFestivalesFecha").change(function() {
+//        $("#divTabla").html("");
+//
+//    });
 });

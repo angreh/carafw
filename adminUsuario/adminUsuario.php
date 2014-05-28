@@ -25,7 +25,7 @@ $tpl->NOMBRE_USUARIO = $rcsDato->login;
 if (!empty($_GET) && isset($_GET['borrarGrupo'])) {
 
     //query de apagar o registro
-    $borrar = $conBBDD->query("delete from tblfestivales.usuarios_grupos where usuarios_grupos.idgrupo=" . $_GET['borrarGrupo']);
+    $borrar = $conBBDD->query("delete from tblfestivales.notificacion_grupos where notificacion_grupos.idgrupo=" . $_GET['borrarGrupo']);
     if ($borrar === FALSE) {
         exit('no a sido borrado ');
     }
@@ -35,7 +35,7 @@ if (!empty($_GET) && isset($_GET['borrarGrupo'])) {
 if (!empty($_GET) && isset($_GET['borrarEstilo'])) {
 
     //query de apagar o registro
-    $borrar = $conBBDD->query("delete from tblfestivales.estilos_usuarios where estilos_usuarios.idEstilos=" . $_GET['borrarEstilo']);
+    $borrar = $conBBDD->query("delete from tblfestivales.notificacion_estilos where notificacion_estilos.idEstilos=" . $_GET['borrarEstilo']);
     if ($borrar === FALSE) {
         exit('no a sido borrado ');
     }
@@ -45,7 +45,7 @@ if (!empty($_GET) && isset($_GET['borrarEstilo'])) {
 if (!empty($_GET) && isset($_GET['borrarFestival'])) {
 
     //query de apagar o registro
-    $borrar = $conBBDD->query("delete from tblfestivales.usuarios_festivales where usuarios_festivales.idFestivales=" . $_GET['borrarFestival']);
+    $borrar = $conBBDD->query("delete from tblfestivales.notificacion_festivales where notificacion_festivales.idFestivales=" . $_GET['borrarFestival']);
     if ($borrar === FALSE) {
         exit('no a sido borrado ');
     }
@@ -56,7 +56,7 @@ if (!empty($_GET) && isset($_GET['borrarFestival'])) {
 if (!empty($_GET) && isset($_GET['borrarLocaliza'])) {
 
     //query de apagar o registro
-    $borrar = $conBBDD->query("delete from tblfestivales.localizacion_usuario where localizacion_usuario.idComunidad=" . $_GET['borrarLocaliza']);
+    $borrar = $conBBDD->query("delete from tblfestivales.notificacion_comunidad where notificacion_comunidad.idcomunidad=" . $_GET['borrarLocaliza']);
     if ($borrar === FALSE) {
         exit('no a sido borrado ');
     }
@@ -67,7 +67,7 @@ if (!empty($_GET) && isset($_GET['borrarLocaliza'])) {
 if (!empty($_GET) && isset($_GET['borrarLocaliza1'])) {
 
     //query de apagar o registro
-    $borrar = $conBBDD->query("delete from tblfestivales.localizacion_usuario where localizacion_usuario.idProvincia=" . $_GET['borrarLocaliza1']);
+    $borrar = $conBBDD->query("delete from tblfestivales.notificacion_provincia where notificacion_provincia.idprovincia=" . $_GET['borrarLocaliza1']);
     if ($borrar === FALSE) {
         exit('no a sido borrado ');
     }
@@ -78,7 +78,7 @@ if (!empty($_GET) && isset($_GET['borrarLocaliza1'])) {
 if (!empty($_GET) && isset($_GET['borrarLocaliza2'])) {
 
     //query de apagar o registro
-    $borrar = $conBBDD->query("delete from tblfestivales.localizacion_usuario where localizacion_usuario.idMunicipio=" . $_GET['borrarLocaliza2']);
+    $borrar = $conBBDD->query("delete from tblfestivales.notificacion_municipio where notificacion_municipio.idMunicipio=" . $_GET['borrarLocaliza2']);
     if ($borrar === FALSE) {
         exit('no a sido borrado ');
     }
@@ -147,19 +147,19 @@ if (empty($_POST)) {
     }
 
     // donde empieza las cosas anidadas
-    $lstFestivalAnidados = $conBBDD->query("select festivales.id,festivales.nombre from tblfestivales.festivales inner join tblfestivales.usuarios_festivales on usuarios_festivales.idFestivales=festivales.id where idUsuarios=" . $_SESSION["usuarioID"]);
+    $lstFestivalAnidados = $conBBDD->query("select festivales.id,festivales.nombre from tblfestivales.festivales inner join tblfestivales.notificacion_festivales on notificacion_festivales.idFestivales=festivales.id where idUsuarios=" . $_SESSION["usuarioID"]);
     while ($oFestivalAnidados = $lstFestivalAnidados->fetch_object()) {
         $tpl->FESTIVALES_ID = $oFestivalAnidados->id;
         $tpl->FESTIVALES_NOMBRE = $oFestivalAnidados->nombre;
         $tpl->block('FESTIVALES_BLOCK');
     }
-    $lstGruposAnidados = $conBBDD->query("select grupos.id,grupos.nombre from tblfestivales.grupos inner join tblfestivales.usuarios_grupos on usuarios_grupos.idgrupo=grupos.id where idusuario=" . $_SESSION["usuarioID"]);
+    $lstGruposAnidados = $conBBDD->query("select grupos.id,grupos.nombre from tblfestivales.grupos inner join tblfestivales.notificacion_grupos on notificacion_grupos.idgrupo=grupos.id where idusuario=" . $_SESSION["usuarioID"]);
     while ($oGruposAnidados = $lstGruposAnidados->fetch_object()) {
         $tpl->GRUPOS_ID = $oGruposAnidados->id;
         $tpl->GRUPOS_NOMBRE = $oGruposAnidados->nombre;
         $tpl->block('GRUPOS_BLOCK');
     }
-    $lstEstilosAnidados = $conBBDD->query("select estilos.id,estilos.nombre from tblfestivales.estilos inner join tblfestivales.estilos_usuarios on estilos_usuarios.idEstilos=estilos.id where idUsuarios=" . $_SESSION["usuarioID"]);
+    $lstEstilosAnidados = $conBBDD->query("select estilos.id,estilos.nombre from tblfestivales.estilos inner join tblfestivales.notificacion_estilos on notificacion_estilos.idEstilos=estilos.id where idUsuarios=" . $_SESSION["usuarioID"]);
     while ($oEstilosAnidados = $lstEstilosAnidados->fetch_object()) {
         $tpl->ESTILO_ID = $oEstilosAnidados->id;
         $tpl->ESTILO_NOMBRE = $oEstilosAnidados->nombre;
@@ -167,21 +167,21 @@ if (empty($_POST)) {
     }
     // donde se enseña la lista
     $lstLocalizaAnidados = $conBBDD->query("select comunidades.id,comunidades.comunidad from tblfestivales.comunidades" .
-            " inner join tblfestivales.localizacion_usuario on comunidades.id = localizacion_usuario.idComunidad where localizacion_usuario.idUsuarios=" . $_SESSION["usuarioID"] . " order by localizacion_usuario.idUsuarios;");
-    while ($oLocalizaAnidados = $lstLocalizaAnidados->fetch_object()) {
-        $tpl->LOCALIZA_ID = $oLocalizaAnidados->id;
-        $tpl->LOCALIZA_NOMBRE = $oLocalizaAnidados->comunidad;
+            " inner join tblfestivales.notificacion_comunidad on comunidades.id = notificacion_comunidad.idcomunidad where notificacion_comunidad.idusuario=" . $_SESSION["usuarioID"] . " order by notificacion_comunidad.idUsuario;");
+    while ($oLocalizaAnidados1 = $lstLocalizaAnidados->fetch_object()) {
+        $tpl->LOCALIZA_ID = $oLocalizaAnidados1->id;
+        $tpl->LOCALIZA_NOMBRE = $oLocalizaAnidados1->comunidad;
         $tpl->block('LOCALIZA_BLOCK');
     }
     $lstProvinciaAnidados = $conBBDD->query("select provincias.id,provincias.provincia from tblfestivales.provincias" .
-            " inner join tblfestivales.localizacion_usuario on provincias.id = localizacion_usuario.idProvincia where localizacion_usuario.idUsuarios=" . $_SESSION["usuarioID"] . " order by localizacion_usuario.idUsuarios;");
-    while ($oLocalizaAnidados = $lstProvinciaAnidados->fetch_object()) {
-        $tpl->LOCALIZA1_ID = $oLocalizaAnidados->id;
-        $tpl->LOCALIZA_NOMBRE = $oLocalizaAnidados->provincia;
+            " inner join tblfestivales.notificacion_provincia on provincias.id = notificacion_provincia.idprovincia where notificacion_provincia.idusuario=" . $_SESSION["usuarioID"] . " order by notificacion_provincia.idUsuario;");
+    while ($oLocalizaAnidados2 = $lstProvinciaAnidados->fetch_object()) {
+        $tpl->LOCALIZA1_ID = $oLocalizaAnidados2->id;
+        $tpl->LOCALIZA_NOMBRE = $oLocalizaAnidados2->provincia;
         $tpl->block('LOCALIZA1_BLOCK');
     }
     $lstMuniAnidados = $conBBDD->query("select municipios.idmunicipio ,municipios.municipio from tblfestivales.municipios" .
-            " inner join tblfestivales.localizacion_usuario on municipios.idmunicipio = localizacion_usuario.idMunicipio where localizacion_usuario.idUsuarios=" . $_SESSION["usuarioID"] . " order by localizacion_usuario.idUsuarios;");
+            " inner join tblfestivales.notificacion_municipio on municipios.idmunicipio = notificacion_municipio.idMunicipio where notificacion_municipio.idUsuarios=" . $_SESSION["usuarioID"] . " order by notificacion_municipio.idUsuarios;");
     while ($oLocalizaAnidados = $lstMuniAnidados->fetch_object()) {
         $tpl->LOCALIZA2_ID = $oLocalizaAnidados->idmunicipio;
         $tpl->LOCALIZA_NOMBRE = $oLocalizaAnidados->municipio;
@@ -192,25 +192,25 @@ if (empty($_POST)) {
     // insertar datos
     if ($_POST['adicionarTipo'] == 'comunidad') {
 
-        $result = $conBBDD->query("insert into tblfestivales.localizacion_usuario (localizacion_usuario.idUsuarios,localizacion_usuario.idcomunidad) values" .
+        $result = $conBBDD->query("insert into tblfestivales.notificacion_comunidad (notificacion_comunidad.idusuario,notificacion_comunidad.idcomunidad) values" .
                 " (" . $_SESSION["usuarioID"] . "," . $_POST["lstComunidad"] . " ) ");
         if ($result === FALSE) {
             exit('no a sido posible inserta los datos');
         }
     } elseif ($_POST['adicionarTipo'] == 'provincia') {
-        $result = $conBBDD->query("insert into tblfestivales.localizacion_usuario (localizacion_usuario.idUsuarios,localizacion_usuario.idprovincia) values" .
+        $result = $conBBDD->query("insert into tblfestivales.notificacion_provincia (notificacion_provincia.idusuario,notificacion_provincia.idprovincia) values" .
                 " (" . $_SESSION["usuarioID"] . "," . $_POST["lstProvincia"] . " ) ");
         if ($result === FALSE) {
             exit('no a sido posible inserta los datos');
         }
     } elseif ($_POST['adicionarTipo'] == 'municipio') {
-        $result = $conBBDD->query("insert into tblfestivales.localizacion_usuario (localizacion_usuario.idUsuarios,localizacion_usuario.idmunicipio) values" .
+        $result = $conBBDD->query("insert into tblfestivales.notificacion_municipio (notificacion_municipio.idUsuarios,notificacion_municipio.idmunicipio) values" .
                 " (" . $_SESSION["usuarioID"] . "," . $_POST["lstMunicipios"] . " ) ");
         if ($result === FALSE) {
             exit('no a sido posible inserta los datos');
         }
     } elseif ($_POST['adicionarTipo'] == 'grupos') {
-        $result = $conBBDD->query("insert into tblfestivales.usuarios_grupos (idusuario,idgrupo) values" .
+        $result = $conBBDD->query("insert into tblfestivales.notificacion_grupos (idusuario,idgrupo) values" .
                 " (" . $_SESSION["usuarioID"] . "," . $_POST["lstGrupos"] . " ) ");
 
         if ($result === FALSE) {
@@ -218,13 +218,13 @@ if (empty($_POST)) {
         }
     } elseif ($_POST['adicionarTipo'] == 'estilos') {
 
-        $result = $conBBDD->query("insert into tblfestivales.estilos_usuarios (idEstilos,idUsuarios) values" .
+        $result = $conBBDD->query("insert into tblfestivales.notificacion_usuarios (idEstilos,idUsuarios) values" .
                 " (" . $_POST["lstEstilos"] . "," . $_SESSION["usuarioID"] . " ) ");
         if ($result === FALSE) {
             exit('no a sido posible inserta los datos');
         }
     } elseif ($_POST['adicionarTipo'] == 'festivales') {
-        $result = $conBBDD->query("insert into tblfestivales.usuarios_festivales (idUsuarios,idFestivales) values" .
+        $result = $conBBDD->query("insert into tblfestivales.notificacion_festivales (idUsuarios,idFestivales) values" .
                 " (" . $_SESSION["usuarioID"] . "," . $_POST["lstFestivales"] . " ) ");
 
         if ($result === FALSE) {
